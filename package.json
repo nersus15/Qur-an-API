@@ -1,0 +1,33 @@
+{
+  "name": "qur-an-api",
+  "version": "1.0.0",
+  "description": "Al-Qur'an API",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js",
+    "SW": "nodemon app.js",
+    "server": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nersus15/Qur-an-API.git"
+  },
+  "keywords": [
+    "quran"
+  ],
+  "author": "fathurrahman",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nersus15/Qur-an-API/issues"
+  },
+  "homepage": "https://github.com/nersus15/Qur-an-API#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongodb": "^3.3.2",
+    "mongoose": "^5.7.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.2"
+  }
+}
