@@ -16,8 +16,14 @@ router.get( '/:suratNumber', ( req, res, next ) => {
 // ...
 
 router.post( '/', ( req, res, next ) => {
+    const newSurat = {
+        nomerSurat: req.body.nomerSurat,
+        namaSurat: req.body.namaSurat,
+        jumlahAyat: req.body.jumlahAyat
+    }
     res.status( 200 ).json( {
         message: "POST Request Work",
+        dataBaru: newSurat
     } );
 } );
 router.patch( '/:suratNumber', ( req, res, next ) => {

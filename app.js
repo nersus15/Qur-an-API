@@ -1,12 +1,15 @@
 // import moduls, packages
 const express = require( 'express' );
 const morgan = require( 'morgan' );
+const bodyParser = require( 'body-parser' );
 const app = express();
 
 // import routers
 const suratRoutes = require( './api/routes/surats' );
 
 /* use middleware */
+app.use( bodyParser.urlencoded( { extended: false } ) );
+app.use( bodyParser.json() );
 app.use( morgan( 'dev' ) );
 
 // Routes wich should Handle Request
