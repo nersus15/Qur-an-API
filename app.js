@@ -2,7 +2,13 @@
 const express = require( 'express' );
 const morgan = require( 'morgan' );
 const bodyParser = require( 'body-parser' );
+const mongoose = require( 'mongoose' );
 const app = express();
+
+// Connect to MongoDB using Mongoose
+mongoose.connect( `mongodb+srv://K15:ZWKuPed681GwFDcZ@cluster0-hehyb.mongodb.net/Qur'an-API?retryWrites=true&w=majority`, {
+    useMongoClient: true,
+} )
 
 // import routers
 const suratRoutes = require( './api/routes/surats' );
