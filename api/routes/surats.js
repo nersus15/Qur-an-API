@@ -23,7 +23,7 @@ router.get( '/', ( req, res, next ) => {
                             request: {
                                 descriptioin: "get the surat",
                                 type: "GET",
-                                url: "http://localhost:3002/surats/" + doc.nomer_surat
+                                url: process.env.BASE_URL + 'surats/' + doc.nomer_surat
                             }
                         };
                     } )
@@ -52,7 +52,7 @@ router.get( '/:nomerSurat', ( req, res, next ) => {
                     request: {
                         descriptioin: "get all surats",
                         type: "GET",
-                        url: "http://localhost:3002/surats/"
+                        url: process.env.BASE_URL + 'surats/'
                     }
                 } );
             } else {
@@ -87,7 +87,7 @@ router.post( '/', ( req, res, next ) => {
                     request: {
                         descriptioin: "get the surat",
                         type: "GET",
-                        url: "http://localhost:3002/surats/" + result.nomer_surat
+                        url: process.env.BASE_URL + 'surats/' + result.nomer_surat
                     }
                 }
             } );
@@ -115,7 +115,7 @@ router.patch( '/:nomerSurat', ( req, res, next ) => {
                 request: {
                     descriptioin: "get the surat",
                     type: "GET",
-                    url: "http://localhost:3002/surats/" + nomerSurat
+                    url: process.env.BASE_URL + 'surats/' + nomerSurat
                 }
             } );
         } )
@@ -136,7 +136,7 @@ router.delete( '/:nomerSurat', ( req, res, next ) => {
                 request: {
                     descriptioin: "get all surats",
                     type: "GET",
-                    url: "http://localhost:3002/surats/",
+                    url: process.env.BASE_URL + 'surats/',
                 }
             } );
         } )
