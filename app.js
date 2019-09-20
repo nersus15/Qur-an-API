@@ -10,6 +10,7 @@ mongoose.connect( `mongodb+srv://K15:ZWKuPed681GwFDcZ@cluster0-hehyb.mongodb.net
 
 // import routers
 const suratRoutes = require( './api/routes/surats' );
+const ayatRoutes = require( './api/routes/ayats' );
 
 /* use middleware */
 app.use( bodyParser.urlencoded( { extended: false } ) );
@@ -27,6 +28,7 @@ app.use( ( req, res, next ) => {
 
 // Routes wich should Handle Request
 app.use( '/surats', suratRoutes );
+app.use( '/ayat', ayatRoutes );
 
 // Htpp Request Error Handler 
 app.use( ( req, res, next ) => {

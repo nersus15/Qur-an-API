@@ -8,6 +8,7 @@ const suratModel = require( '../models/surat' );
 router.get( '/', ( req, res, next ) => {
     suratModel.find()
         .select( "nomer_surat nama_surat nama_dalam_indonesia jumlah_ayat" )
+        .sort( { nomer_surat: 1 } )
         .exec()
         .then( docs => {
             console.log( docs );
@@ -16,10 +17,12 @@ router.get( '/', ( req, res, next ) => {
                     count: docs.length,
                     surats: docs.map( doc => {
                         return {
+                            id: doc._id,
                             nomer_surat: doc.nomer_surat,
                             nama_surat: doc.nama_surat,
                             nama_dalam_indonesia: doc.nama_dalam_indonesia,
                             jumlah_ayat: doc.jumlah_ayat,
+                            daftar_ayat: doc.ayats,
                             request: {
                                 descriptioin: "get the surat",
                                 type: "GET",
@@ -45,10 +48,12 @@ router.get( '/:nomerSurat', ( req, res, next ) => {
             console.log( doc );
             if ( doc ) {
                 res.status( 200 ).json( {
+                    id: doc._id,
                     nomer_surat: doc.nomer_surat,
                     nama_surat: doc.nama_surat,
                     nama_dalam_indonesia: doc.nama_dalam_indonesia,
                     jumlah_ayat: doc.jumlah_ayat,
+                    daftar_ayat: doc.ayats,
                     request: {
                         descriptioin: "get all surats",
                         type: "GET",
@@ -80,6 +85,7 @@ router.post( '/', ( req, res, next ) => {
             res.status( 200 ).json( {
                 message: "You Success Creat New Surat",
                 dataBaru: {
+                    id: result._id,
                     nomer_surat: result.nomer_surat,
                     nama_surat: result.nama_surat,
                     nama_dalam_indonesia: result.nama_dalam_indonesia,
